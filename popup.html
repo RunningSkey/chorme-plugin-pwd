@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>账号密码查看器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>账号密码查看器</h1>
+      <button id="toggleAllBtn" class="toggle-btn">显示全部</button>
+    </div>
+    
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索平台...">
+    </div>
+    
+    <div id="platformList" class="platform-list"></div>
+    
+    <div class="footer">
+      <button id="exportBtn" class="edit-btn export-import-btn">导出</button>
+      <button id="importBtn" class="edit-btn export-import-btn">导入</button>
+      <button id="editConfigBtn" class="edit-btn">编辑配置</button>
+      <input type="file" id="importFile" accept=".json" style="display: none;">
+    </div>
+  </div>
+  
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>编辑平台配置</h2>
+        <span class="close-btn">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div id="configList" class="config-list"></div>
+        <div class="add-form">
+          <h3>添加新平台</h3>
+          <input type="text" id="newPlatformName" placeholder="平台名称">
+          <input type="text" id="newPlatformUrl" placeholder="网站URL">
+          <input type="text" id="newPlatformUsername" placeholder="用户名">
+          <input type="text" id="newPlatformPassword" placeholder="密码">
+          <button id="addPlatformBtn" class="add-btn">添加</button>
+        </div>
+        <div class="update-section">
+          <input type="text" id="platformDataInput" class="platform-data-input" placeholder="粘贴平台数据...">
+          <button id="updatePlatformBtn" class="edit-btn">更新平台</button>
+          <button id="copyPlatformBtn" class="edit-btn">复制平台数据</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "账号密码查看器",
+  "version": "1.0.0",
+  "description": "快速查看各平台账号和密码",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "账号密码查看器"
+  }
+}

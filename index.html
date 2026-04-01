@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>账号密码查看器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>账号密码查看器</h1>
+      <button id="toggleAllBtn" class="toggle-btn">显示全部</button>
+    </div>
+    
+    <div class="main-area">
+      <div class="content">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="搜索平台名称、网址、账号名、账号...">
+        </div>
+        
+        <div id="platformList" class="platform-list"></div>
+      </div>
+      
+      <div class="sidebar">
+        <h2>操作</h2>
+        <button id="addPlatformBtn" class="edit-btn">新增平台</button>
+        <div class="update-section">
+          <input type="text" id="platformDataInput" class="platform-data-input" placeholder="粘贴平台数据...">
+          <button id="updatePlatformBtn" class="edit-btn">更新平台</button>
+          <button id="copyPlatformBtn" class="edit-btn">复制平台数据</button>
+        </div>
+        <div class="stats">
+          <p>共 <strong id="totalCount">0</strong> 个平台</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 新增平台弹窗 -->
+  <div id="addModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>新增平台</h2>
+        <span class="close-btn" data-modal="addModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>序号（用于排序）</label>
+          <input type="number" id="newPlatformSort" placeholder="数字越小越靠前" value="0">
+        </div>
+        <div class="form-group">
+          <label>平台名称</label>
+          <input type="text" id="newPlatformName" placeholder="如：GitHub">
+        </div>
+        <div class="form-group">
+          <label>环境列表</label>
+          <div id="newEnvFields"></div>
+          <div class="env-btn-group">
+            <button id="addEnvBtn" class="add-row-btn">+ 添加环境</button>
+            <button id="copyEnvBtn" class="add-row-btn">+ 复制添加环境</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="saveNewPlatformBtn" class="save-btn">保存</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 编辑平台弹窗 -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>编辑平台</h2>
+        <span class="close-btn" data-modal="editModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>序号（用于排序）</label>
+          <input type="number" id="editPlatformSort">
+        </div>
+        <div class="form-group">
+          <label>平台名称</label>
+          <input type="text" id="editPlatformName">
+        </div>
+        <div class="form-group">
+          <label>环境列表</label>
+          <div id="editEnvFields"></div>
+          <div class="env-btn-group">
+            <button id="addEditEnvBtn" class="add-row-btn">+ 添加环境</button>
+            <button id="copyEditEnvBtn" class="add-row-btn">+ 复制添加环境</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="saveEditPlatformBtn" class="save-btn">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
